@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HackerSearch</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div>
+			<form method="get" action="/search">
+				<input type="text" name="query" value="{{ query }}"></input>
+				<input type="submit" value="Search"></input>
+			</form>
+			{% for result in results %}
+			<a href="{{ result.url }}">
+				<div class="result">
+					<h2><img src="{{ result.favicon_url }}">{{ result.title }}</h2>
+			<p>{{ result.contents }}</p>
+
+				</div>
+			</a>
+			{% endfor %}
+
+    </div>
+  </body>
+</html>
