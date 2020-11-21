@@ -7,6 +7,7 @@ class Subject(Enum):
 class Query:
     def __init__(self):
         self.text = ""
+        self.full_text = ""
         self.keywords = []
         self.subject = Subject.GENERAL
 
@@ -27,4 +28,3 @@ class Query:
         for keyword in self.keywords:
             rep += "kw:" + keyword
         return rep
-
