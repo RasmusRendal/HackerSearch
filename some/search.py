@@ -1,6 +1,6 @@
 import requests
 import urllib
-from miniengine import Result
+from miniengine import Result, cachedrequest
 
 def search(query):
     request_uri = 'https://api.stackexchange.com/2.2/search?'
@@ -20,16 +20,14 @@ def search(query):
     if len(query.text) > 0:
         formdata['intitle'] = query.text
 
-
-    r = requests.get(request_uri + urllib.parse.urlencode(formdata))
-    print(r.json())
+    request_uri += urllib.parse.urlencode(formdata)
+    r = cachedrequest(request_uri)
     results = []
-    for item in r.json()['items']:
+    for item in r['items']:
         res = Result()
         res.title = item['title']
         res.url = item['link']
         res.favicon_url = "https://stackoverflow.com/favicon.ico"
+        res.score = item['score']
         results.append(res)
     return results
-
-
