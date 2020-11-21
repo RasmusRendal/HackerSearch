@@ -4,3 +4,39 @@
 	margin: 10px;
 	padding: 5px;
 }
+
+input#title1 {
+    display: none;
+}
+
+label {
+    display: block;
+    padding: 8px 22px;
+    margin: 0 0 1px 0;
+    cursor: pointer;
+    background: #6AAB95;
+    border-radius: 3px;
+    transition: ease .5s;
+		max-width: 50%;
+}
+
+label:hover {
+    background: #4E8774;
+}
+
+.content {
+    background: #E2E5F6;
+    padding: 10px 25px;
+    border: 1px solid #A7A7A7;
+    margin: 0 0 1px 0;
+    border-radius: 3px;
+		max-width: 50%;
+}
+
+input + label + .content {
+    display: none;
+}
+
+input:checked + label + .content {
+    display: block;
+}

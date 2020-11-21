@@ -7,9 +7,25 @@
   <body>
     <div>
 			<form method="get" action="/search">
-				<input type="text" name="query" value="{{ query }}"></input>
+				<input type="text" name="query" value="{{ query.full_text }}"></input>
 				<input type="submit" value="Search"></input>
 			</form>
+			{% if results|length == 0 %}
+				<b>No results</b>
+			{% endif %}
+			<input type="checkbox" id="title1" />
+<label for="title1">Debug Info</label>
+
+<div class="content">
+	<p>Keywords:</p>
+	<ul>
+		{% for keyword in query.keywords %}
+		<li>{{ keyword }}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+</div>
 			{% for result in results %}
 			<a href="{{ result.url }}">
 				<div class="result">

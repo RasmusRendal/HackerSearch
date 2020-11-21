@@ -18,7 +18,7 @@ def search():
     query_text = request.args['query']
     query = truequery.parse(query_text)
     results = some.search(query)
-    return render_template('search.html', query=query_text, results=results)
+    return render_template('search.html', query=query, results=results)
 
 @app.route('/favicon.ico')
 def favicon():
