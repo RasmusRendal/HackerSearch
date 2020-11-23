@@ -22,3 +22,12 @@ If the subject of the query object is `programming`, then the query will be pass
 Several engines should be able to register for a subject.
 
 Finally, the results are returned to hackersearch, which presents a nice HTML page to the user.
+
+
+### Setup
+
+Copy `.env-sample` to `.env` and update accordingly
+
+```sh
+cp .env-sample .env
+```
